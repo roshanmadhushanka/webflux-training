@@ -29,7 +29,7 @@ public class FluxAndMonoWithTimeTest {
 
     @Test
     public void infiniteSequenceMap_withDelay() {
-        Flux<Integer> infiniteFlux = Flux.interval(Duration.ofMillis(1000)) // Downstream delay should not exceed 1 second
+        Flux<Integer> infiniteFlux = Flux.interval(Duration.ofMillis(1000)) // Here interval is 1 second, so the downstream delay should not exceed 1 second
                 .delayElements(Duration.ofSeconds(1))
                 .map(Long::intValue)
                 .take(3)
